@@ -1,5 +1,16 @@
-# Testing Workshop
-> Blurb about the talk and a link to the slides
+# :bug: Testing Workshop :bug:
+
+Slides :books: - https://docs.google.com/presentation/d/1bWptPDNonRIAgT2U3sjeAxBc_hPzDIOFpkPuZ8HGdJc/edit?usp=sharing
+
+## Installation
+
+- `npm i`
+- Open your terminal and run this command in one terminal - `npm start`
+- Open another tab in your temrinal and run - `npm run test:watch`
+
+## Dev Env
+
+The Dev env is using storybook and it will show your tests passing or failing in the story so you can hide your terminal now and crack on inside storybook! :tada: :sparkles:
 
 ## The user story
 
@@ -8,6 +19,12 @@ As a user,
 When I go to the product details page and I interact with the product details component, 
 I expect to be able to toggle between the panels that show different information about that product.
 ```
+
+### Acceptance Criteria
+
+- It should be able to open and close
+- It should have the correct aria attributes assigned to the correct states
+- Other Accordion Items should close
 
 ### Developer Notes
 
