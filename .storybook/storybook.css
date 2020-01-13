@@ -1,33 +1,3 @@
 .sb-show-main {
     border: 20px solid #ffffff;
 }
-
-._box-placeholder {
-    border: 2px dashed #bbb;
-    background-color: #f2f2f2;
-    margin-bottom: 20px;
-}
-
-.s-colour-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-}
-
-.s-colour-grid__item {
-    color: var(--white);
-    grid-column: span 4;
-    padding: 40px;
-    text-align: center;
-}
-
-.s-colour-grid__item--variant {
-    color: var(--black);
-}
-
-.o-grid__item {
-    background-color: var(--secondary);
-    color: var(--white);
-    padding: 20px;
-}

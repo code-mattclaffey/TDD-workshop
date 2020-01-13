@@ -1,55 +1,79 @@
-# Titan Ui
+# Testing Workshop
+> Blurb about the talk and a link to the slides
 
-> A Starter Framework for your React & CSS Components
+## The user story
 
-## Styleguide Information
+```
+As a user, 
+When I go to the product details page and I interact with the product details component, 
+I expect to be able to toggle between the panels that show different information about that product.
+```
 
-The styleguide is built using storybook which comes with a lot of features such as:
+### Developer Notes
 
--   WCAG 2.0 testing
--   React components
--   Static markup previews
--   Integrated Percy.io visual regression testing
+1. Write a snapshot test around the current accordion that is in place. This will be your "golden master" version. We will be updating this as we go along. To update a snapshot it is `npm run jest -- -u`.
 
-These features are built to make development a lot easier and more up to date with the other tools we use across our other react projects.
+2. Write a test around the open and close functionality. Remember to write the test to fail and then pass it onto the next person to make the test pass. *Tip*: Use utility class `u-visually-hidden` to show and hide the panel. (This will break your snapshot, so remember to update it ;))
 
-## CSS Information
+#### Bonus Task
 
--   The CSS is written following the standards of ITCSS & BEM
--   Uses custom properties for overriding styles
--   Built using PostCSS
+Awesome! Hopefully you have written an event driven test on the component and you have written and you have snapshot tests in place! Legend! Let's try and make this component a little more accessble now. Now based on what you have learnt in the last two tasks try and make this component more accessible.
 
-## Typescript
+3a. The AccordionTab component needs to have a unique identifier which will determine which panel it will show or hide so we need to give it a prop. Write a test around added this prop in and check if it has the aria-expanded attribute, aria-controls attribute and the href attribute.
+    - test case one to check that the aria-expanded is set to false when the tab is not active.
+    - test case two to check that aria-expanded is set to true when the tab is active.
+    - test case three is to check if all the attributes exist on the element via a snapshot or checking the attributes.
 
--   Build a types module
+3b. The AccordionPanel will need an id attribute added to the div and a tabindex attribute assigned to it.
+    - test case one you can check if tabIndex is -1 when the tab panel is inactive.
+    - text case two you can check if the tabindex is 0 when the tab panel is active.
+    - test case three you can check if the attributes exist via a snapshot or check if attributes exist on the element.
 
-## Setup
+## Tips
 
--   `npm i`
--   `npm start`
+### Writing a snapshot
 
-## OK, so what does it give me?
+// Component.test.tsx
+```javascript
+const { container } = render(<MyReactComponent />);
 
-The base of Titan Ui consists of:
+expect(container).toMatchSnapshot();
+```
 
--   a basic reset stylesheet
--   a configurable, responsive grid system
--   a configurable typography system
--   a configurable baseline grid for vertical rhythm
--   basic styling for headings, buttons, lists, images, pictures
+### Checking for attributes on an element
 
-You also get the following third-party tools:
+// Component.tsx
+```javascript
+return (
+    <div id="testid" data-test-id="accordionPanel"></div>
+);
+```
 
--   Normalize.css (v3.0.2) https://necolas.github.io/normalize.css/
+// Component.test.tsx
+```javascript
+const { queryByTestId } = render(<MyReactComponent />);
 
-## Prettier & Eslint Helpers
+expect(queryByTestId('accordionPanel').getAttribute('id')).toEqual('testId');
+```
 
-This project uses Eslint and Prettier so all developers have a similiar coding style and it checks for errors that we may have made without realising. To get maximum potential out of this you can install the eslint plugin in vs code & the prettier plugin. Once installed these plugins will follow the config in the project and help you when you are coding.
+### Makinga collaspable component
 
-## I've got a cool idea for this, how can I contribute?
+```javascript
 
-Checkout the [CONTRIBUTING.md](https://github.com/code-mattclaffey/titan-ui/blob/master/CONTRIBUTING.md) for details on how you can contribute to ampCSS.
+export const AccordionItem = ({ id, isActive = false }: AccordionItemInterface) => (
+    <a href={`#${id}`} aria-controls={id} aria-expanded={isActive ? "true" : "false"}>My Link</a>
 
-## I've found a bug! How can I fix it?
+    <div id={id} tabIndex="-0">
+        Some content
+    </div>
+);
+```
 
-Raise an issue in the [issue tracker](https://github.com/code-mattclaffey/titan-ui/issues) and label it with the `bug` label. Include a description, screenshots, steps to recreate the issue and possible fixes.
+### Adding props to typescript interfaces 
+
+```typescript
+export interface AccordionItemInterface {
+    id: string;
+    isActive?: boolean; // will be a new addition to the component
+}
+```

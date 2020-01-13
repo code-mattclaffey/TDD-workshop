@@ -46,7 +46,7 @@
     },
     "overrides": [
         {
-            "files": ["./src/components/**/*.test.js"],
+            "files": ["./src/components/**/*.test.tsx"],
             "env": {
                 "browser": false
             }
