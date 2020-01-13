@@ -31,23 +31,7 @@ I expect to be able to toggle between the panels that show different information
 
 ## Developer Notes
 
-1. Write a snapshot test around the current accordion that is in place. This will be your "golden master" version. We will be updating this as we go along. To update a snapshot it is `npm run jest -- -u`.
-
-2. Write a test around the open and close functionality. Remember to write the test to fail and then pass it onto the next person to make the test pass. *Tip*: Use utility class `u-visually-hidden` to show and hide the panel. (This will break your snapshot, so remember to update it ;))
-
-### Bonus Task
-
-Awesome! Hopefully you have written an event driven test on the component and you have written and you have snapshot tests in place! Legend! Let's try and make this component a little more accessble now. Now based on what you have learnt in the last two tasks try and make this component more accessible.
-
-3a. The AccordionTab component needs to have a unique identifier which will determine which panel it will show or hide so we need to give it a prop. Write a test around added this prop in and check if it has the aria-expanded attribute, aria-controls attribute and the href attribute.
-    - test case one to check that the aria-expanded is set to false when the tab is not active.
-    - test case two to check that aria-expanded is set to true when the tab is active.
-    - test case three is to check if all the attributes exist on the element via a snapshot or checking the attributes.
-
-3b. The AccordionPanel will need an id attribute added to the div and a tabindex attribute assigned to it.
-    - test case one you can check if tabIndex is -1 when the tab panel is inactive.
-    - text case two you can check if the tabindex is 0 when the tab panel is active.
-    - test case three you can check if the attributes exist via a snapshot or check if attributes exist on the element.
+In the storybook, there is a panel that will tell you which tests need to be completed. They are under the "pending" section.
 
 ## Tips
 
