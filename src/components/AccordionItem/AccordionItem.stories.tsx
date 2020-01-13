@@ -10,13 +10,11 @@ export default {
 };
 
 export const accordionItem = () => (
-    <>
-        <AccordionItem/>
-    </>
+    <AccordionItem isActive title="Hello World" text="This is some hello world text." />
 );
 
 accordionItem.story = {
     parameters: {
-        jest: ['accordionItem.test.tsx'],
+        jest: ['AccordionItem.test.tsx'],
     },
 };

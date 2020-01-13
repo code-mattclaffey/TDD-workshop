@@ -15,7 +15,10 @@
         "test": "jest"
     },
     "license": "UNLICENSED",
-    "dependencies": {},
+    "dependencies": {
+        "@types/classnames": "^2.2.9",
+        "classnames": "^2.2.6"
+    },
     "peerDependencies": {
         "react": "^16.9.0",
         "react-dom": "^16.9.0"

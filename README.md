@@ -12,27 +12,30 @@ Slides :books: - https://docs.google.com/presentation/d/1bWptPDNonRIAgT2U3sjeAxB
 
 The Dev env is using storybook and it will show your tests passing or failing in the story so you can hide your terminal now and crack on inside storybook! :tada: :sparkles:
 
-## The user story
+## Task
 
 ```
+## User Story
+
 As a user, 
 When I go to the product details page and I interact with the product details component, 
 I expect to be able to toggle between the panels that show different information about that product.
-```
 
 ### Acceptance Criteria
 
 - It should be able to open and close
 - It should have the correct aria attributes assigned to the correct states
 - Other Accordion Items should close
+```
 
-### Developer Notes
+
+## Developer Notes
 
 1. Write a snapshot test around the current accordion that is in place. This will be your "golden master" version. We will be updating this as we go along. To update a snapshot it is `npm run jest -- -u`.
 
 2. Write a test around the open and close functionality. Remember to write the test to fail and then pass it onto the next person to make the test pass. *Tip*: Use utility class `u-visually-hidden` to show and hide the panel. (This will break your snapshot, so remember to update it ;))
 
-#### Bonus Task
+### Bonus Task
 
 Awesome! Hopefully you have written an event driven test on the component and you have written and you have snapshot tests in place! Legend! Let's try and make this component a little more accessble now. Now based on what you have learnt in the last two tasks try and make this component more accessible.
 
@@ -93,4 +96,10 @@ export interface AccordionItemInterface {
     id: string;
     isActive?: boolean; // will be a new addition to the component
 }
+```
+
+### Using the classnames module
+
+```javascript
+classNames('my-class', , { 'my-other-class': boolean });
 ```

@@ -1,3 +1,90 @@
+/*--------------------
+    Colours
+--------------------*/
+
+:root {
+    --primary: #201f3e;
+    --primary-light: #6b60e7;
+    --secondary: #ea4855;
+    --secondary-light: #ff8791;
+    --white: #ffffff;
+    --black: #000000;
+    --keyline: #dddddd;
+}
+
+body {
+    font-family: 'Avenir Next', 'Helvetica Neue', sans-serif;
+}
+
+
 .sb-show-main {
     border: 20px solid #ffffff;
+}
+
+.c-accordion {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--keyline);
+    border-radius: 10px;
+}
+
+.c-accordion__item {
+    border-bottom: 1px solid var(--keyline);
+    list-style: none;
+}
+
+.c-accordion .c-accordion__item:first-child .c-accordion__link,
+.c-accordion .c-accordion__item:first-child .c-accordion__link:hover,
+.c-accordion .c-accordion__item:first-child .c-accordion__link:focus,
+.c-accordion .c-accordion__item:first-child .c-accordion__link:active {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.c-accordion .c-accordion__item:last-child {
+    border-bottom: 0;
+}
+
+.c-accordion .c-accordion__item:last-child .c-accordion__link,
+.c-accordion .c-accordion__item:last-child .c-accordion__link:hover,
+.c-accordion .c-accordion__item:last-child .c-accordion__link:focus {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.c-accordion .c-accordion__item:last-child .c-accordion__link--selected,
+.c-accordion .c-accordion__item:last-child .c-accordion__link--selected:hover,
+.c-accordion .c-accordion__item:last-child .c-accordion__link--selected:focus {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.c-accordion__link {
+    display: block;
+    font-weight: 600;
+    padding: 12px;
+    text-decoration: none;
+    transition: background-color .2s linear;
+}
+
+.c-accordion__link:focus,
+.c-accordion__link:hover {
+    background-color: var(--primary);
+    color: var(--white);
+    outline: 0;
+}
+
+.c-accordion__link--selected  {
+    background-color: var(--primary-light);
+    color: var(--white);
+}
+
+.c-accordion__region {
+    display: none;
+    padding: 12px;
+}
+
+.c-accordion__link--selected + .c-accordion__region {
+    display: block;
 }
